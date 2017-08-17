@@ -1,0 +1,1 @@
+Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-SmartCityApi-20161121085523.mdf;Initial Catalog=aspnet-SmartCityApi-20161121085523;Integrated Security=True" providerName="System.Data.SqlClient

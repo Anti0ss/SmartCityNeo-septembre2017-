@@ -104,6 +104,7 @@
     <Compile Include="Models\AnnonceCreateModel.cs" />
     <Compile Include="DAO\AnnonceService.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ModificationUser.cs" />
     <Compile Include="Models\Recherche.cs" />
     <Compile Include="Models\RechercheVoisins.cs" />
     <Compile Include="Models\RegisterBindingModel.cs" />

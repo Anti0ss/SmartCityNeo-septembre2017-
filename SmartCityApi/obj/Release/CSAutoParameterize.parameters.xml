@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AzureConnection-Web.config Connection String" description="AzureConnection Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:neobasededonnees.database.windows.net,1433;Initial Catalog=neoSqldb;Persist Security Info=False;User ID=Anti0ss;Password=Pass8word!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\user\\Documents\\Visual\ Studio\ 2015\\Projects\\SmartCityBd\\SmartCityApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AzureConnection']/@connectionString" />
+  </parameter>
+</parameters>

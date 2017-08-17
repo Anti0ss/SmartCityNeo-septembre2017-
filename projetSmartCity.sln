@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projetSmartCity", "projetSmartCity\projetSmartCity.csproj", "{A5B8C0D2-F539-489F-B8A4-5203DF1C0A20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCityApi", "..\..\..\Visual Studio 2015\Projects\SmartCityBd\SmartCityApi\SmartCityApi.csproj", "{B3C9CF97-C44B-4EA4-95D5-4BDE78193736}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCityApi", "SmartCityApi\SmartCityApi.csproj", "{B3C9CF97-C44B-4EA4-95D5-4BDE78193736}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -23,6 +23,36 @@ namespace projetSmartCity.DAO
             erreur = new ApplicationError();
         }
 
+        public async Task<ApplicationError> SetUtilisateur(ModificationUser u)
+        {
+            pc.BaseAddress = new Uri(AppApi.AddresseApi + "/api/Account/Modification");
+
+            try
+            {
+
+                var reponse = pc.PostAsJsonAsync(pc.BaseAddress, u).Result;
+                if (reponse.IsSuccessStatusCode)
+                {
+                    erreur.errorMessage = reponse.Content.ReadAsStringAsync().Result;
+                    erreur.ok = reponse.IsSuccessStatusCode;
+                    return erreur;
+                }
+                else
+                {
+                    erreur.errorMessage = reponse.Content.ReadAsStringAsync().Result;
+                    erreur.ok = reponse.IsSuccessStatusCode;
+                    return erreur;
+                }
+
+            }
+            catch (Exception e)
+            {
+                erreur.errorMessage = e.ToString();
+                erreur.ok = false;
+                return erreur;
+            }
+
+        }
 
         public async Task<ApplicationUser> GetUtilisateur()
         {
@@ -80,7 +110,7 @@ namespace projetSmartCity.DAO
                     pc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
                     erreur.errorMessage = token.AccessToken;
                     AppApi.Token = token.AccessToken;
-                    var reponseAutorise = pc.GetAsync(new Uri(AppApi.AddresseApi + "/api/Values")).Result;
+                    //var reponseAutorise = pc.GetAsync(new Uri(AppApi.AddresseApi + "/api/Values")).Result;
                     return erreur;
                 }
                 else

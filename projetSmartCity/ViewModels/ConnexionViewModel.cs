@@ -94,6 +94,11 @@ namespace projetSmartCity.ViewModels
 
 
             }
+            else
+            {
+                var dialogue = new Windows.UI.Popups.MessageDialog("Il y a un champs qui n'a pas été remplis!!!");
+                dialogue.ShowAsync();
+            }
         }
         public async Task GetToken(string Mail, string Mdp)
         {

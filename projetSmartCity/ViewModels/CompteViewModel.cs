@@ -12,18 +12,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Navigation;
+
 namespace projetSmartCity.ViewModels
 {
     public class CompteViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _goToMainPageCommand;
         private INavigationService _navigationService;
+        private ICommand _goToModification;
 
         [PreferredConstructor]
         public CompteViewModel(INavigationService navigationService = null)
         {
             _navigationService = navigationService;
             InitializeAsync();
+            
+            var service = new UtilisateurService();
+      
+        }
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+
         }
         public async Task InitializeAsync()
         {
@@ -40,6 +50,8 @@ namespace projetSmartCity.ViewModels
             Adresse_mail = user.Email;
             Numero_de_Telephone = user.Numero_de_Telephone;
         }
+       
+
         public ICommand GoToMainPageCommand
         {
             get
@@ -53,6 +65,7 @@ namespace projetSmartCity.ViewModels
         {
             _navigationService.NavigateTo("MainPage");
         }
+
         private string _adresse_mail;
         public string Adresse_mail
         {
@@ -171,5 +184,45 @@ namespace projetSmartCity.ViewModels
             }
 
         }
-    }
+        private string _password;
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                _password = value;
+                RaisePropertyChanged("Password");
+            }
+        }
+       /* public ICommand GoToModification
+        {
+            get
+            {
+                if (_goToModification == null)
+                    _goToModification = new RelayCommand(() => Modification());
+                return _goToModification;
+            }
+
+        }
+
+        private void Modification()
+        {
+            if ((Nom != null) && (Prenom != null) && (Date_de_Naissance != null) && (Adr_Numero_de_rue != null) && (Adr_Nom_de_Rue != null) && (Adr_Code_Postal != 0) && (Adr_Localite != null) && (Numero_de_Telephone != null))
+            {
+                ModificationUser util = new ModificationUser(Adresse_mail, Nom, Prenom, Date_de_Naissance.DateTime, Adr_Numero_de_rue, Adr_Nom_de_Rue, Adr_Code_Postal, Adr_Localite, Numero_de_Telephone);
+                utilisateurMessage(util);
+            }
+            _navigationService.NavigateTo("CompteView");
+        }
+        private async Task utilisateurMessage(ModificationUser util)
+        {
+            var service = new UtilisateurService();
+            var x = service.SetUtilisateur(util);
+            
+        }*/
+    } 
 }
+

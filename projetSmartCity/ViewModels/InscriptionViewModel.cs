@@ -238,8 +238,15 @@ namespace projetSmartCity.ViewModels
         
         private void GoToMainPage()
         {
-            RegisterBindingModel util= new RegisterBindingModel(Adresse_mail, Nom,Prenom,Date_de_Naissance.DateTime, Adr_Numero_de_rue, Adr_Nom_de_Rue, Adr_Code_Postal, Adr_Localite, Numero_de_Telephone, Password,ConfirmPassword, NbPoints);
+            if ((Adresse_mail != null) && (Nom != null) && (Prenom != null) && (Date_de_Naissance != null) && (Adr_Numero_de_rue != null) && (Adr_Nom_de_Rue != null) && (Adr_Code_Postal != 0) && (Adr_Localite != null) && (Numero_de_Telephone != null) && (Password != null) && (ConfirmPassword!= null)) { 
+                RegisterBindingModel util= new RegisterBindingModel(Adresse_mail, Nom,Prenom,Date_de_Naissance.DateTime, Adr_Numero_de_rue, Adr_Nom_de_Rue, Adr_Code_Postal, Adr_Localite, Numero_de_Telephone, Password,ConfirmPassword, NbPoints);
             utilisateurMessage(util);
+            }
+            else
+            {
+                var dialogue = new Windows.UI.Popups.MessageDialog("Il y a un champs qui n'a pas été remplis!!!");
+                dialogue.ShowAsync();
+            }
         }
         private async Task utilisateurMessage(RegisterBindingModel u)
         {
